@@ -9,7 +9,7 @@ attr_reader :id, :title, :capacity, :day, :session, :level, :number_of_students
     @id = options['id'].to_i if options['id']
     @title = options['title']
     @capacity = options['capacity'].to_i
-    @day = options['day']
+    @day = options['day'].downcase
     @session = options['session'] if options['session']
     @level = options['level'].to_i if options['level']
     @number_of_students = 0
