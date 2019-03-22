@@ -23,5 +23,23 @@ def save
   @id = student.first['id']
 end
 
+def self.find_all
+  sql = 'SELECT * FROM students'
+  student_hash = SqlRunner.run(sql)
+  student = student_hash.map { |student| Student.new(student) }
+end
+
+def self.find_by_id(id)
+  sql = 'SELECT * FROM students
+        WHERE id = $1'
+  values = [id]
+  student = SqlRunner.run(sql, values)
+  result = Student.new(student.first)
+end
+
+
+
+
+
 
 end

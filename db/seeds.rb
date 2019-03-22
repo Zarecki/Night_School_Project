@@ -23,5 +23,12 @@ course1 = Course.new({
     'age' => 65
     })
 
-student1.save
-student2.save
+# student1.save
+# student2.save
+
+
+
+
+# Student.find_all
+
+Student.find_by_id(2)
