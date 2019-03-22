@@ -17,8 +17,11 @@ course1 = Course.new({
     'age' => 52
     })
 
-  student1 = Student.new({
+  student2 = Student.new({
     'first_name' => 'John',
     'last_name' => 'Doe',
     'age' => 65
     })
+
+student1.save
+student2.save

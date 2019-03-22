@@ -9,7 +9,8 @@ CREATE TABLE courses (
   day VARCHAR(255),
   session VARCHAR(255),
   level INT2,
-  number_of_students INT2
+  number_of_students INT2,
+  course_type VARCHAR(255)
 );
 
 CREATE TABLE students (

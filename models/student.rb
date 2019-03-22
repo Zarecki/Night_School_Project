@@ -14,4 +14,14 @@ def initialize(options)
   @course_id = options['course_id'].to_i if options['course_id']
 end
 
+def save
+  sql = 'INSERT INTO students(first_name, last_name, age)
+        VALUES ($1, $2, $3)
+        Returning *'
+  values = [@first_name, @last_name, @age]
+  student = SqlRunner.run(sql, values)
+  @id = student.first['id']
+end
+
+
 end
