@@ -9,8 +9,7 @@ CREATE TABLE courses (
   day VARCHAR(255),
   session VARCHAR(255),
   level INT2,
-  number_of_students INT2,
-  id INT2
+  number_of_students INT2
 );
 
 CREATE TABLE students (
@@ -20,11 +19,11 @@ CREATE TABLE students (
   age INT2,
   ability INT2,
   gender INT2,
-  course_id REFERENCES courses(id) ON DELETE CASCADE
+  course_id INT2 REFERENCES courses(id) ON DELETE CASCADE
 );
 
 CREATE TABLE bookings (
   id SERIAL4 PRIMARY KEY,
-  student_id REFERENCES students(id) ON DELETE CASCADE,
-  course_id REFERENCES courses(id) ON DELETE CASCADE
+  student_id INT2 REFERENCES students(id) ON DELETE CASCADE,
+  course_id INT2 REFERENCES courses(id) ON DELETE CASCADE
 );
