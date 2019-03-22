@@ -6,8 +6,8 @@ class Student
 
 def initialize(options)
   @id = options['id'].to_i if options['id']
-  @first_name = options['first_name']
-  @last_name = options['last_name']
+  @first_name = options['first_name'].capitalize
+  @last_name = options['last_name'].capitalize
   @age = options['age'].to_i
   @ability = options['ability'].to_i if options['ability']
   @gender = options['gender'].to_i if options['gender']
@@ -26,7 +26,7 @@ end
 def self.find_all
   sql = 'SELECT * FROM students'
   student_hash = SqlRunner.run(sql)
-  student = student_hash.map { |student| Student.new(student) }
+  student = Student.mapping
 end
 
 def self.find_by_id(id)
@@ -37,7 +37,22 @@ def self.find_by_id(id)
   result = Student.new(student.first)
 end
 
+def update
+  sql = 'UPDATE students
+        SET(first_name, last_name, age)
+        = ($1, $2, $3)
+        WHERE id - $4'
+  values = [@first_name, @last_name, @age, @id]
+  SqlRunner.run(sql, values)
+end
 
+
+
+
+
+def self.mapping
+  return student_hash.map { |student| Student.new(student) }
+end
 
 
 
