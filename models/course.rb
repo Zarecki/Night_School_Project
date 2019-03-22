@@ -16,6 +16,53 @@ attr_reader :id, :title, :capacity, :day, :session, :level, :number_of_students,
     @number_of_students = 0
   end
 
+  def save
+    sql = 'INSERT INTO courses(title, capacity, day)
+          VALUES ($1, $2, $3)
+          Returning *'
+    values = [@title, @capacity, @day]
+    course = SqlRunner.run(sql, values)
+    @id = course.first['id']
+  end
+
+  def self.find_all
+    sql = 'SELECT * FROM courses'
+    course_hash = SqlRunner.run(sql)
+    course = Course.mapping
+  end
+
+  def self.find_by_id(id)
+    sql = 'SELECT * FROM courses
+          WHERE id = $1'
+    values = [id]
+    course = SqlRunner.run(sql, values)
+    result = Course.new(course.first)
+  end
+
+  def update
+    sql = 'UPDATE courses
+          SET(title, capacity, day)
+          = ($1, $2, $3)
+          WHERE id - $4'
+    values = [@title, @capacity, @day, @id]
+    SqlRunner.run(sql, values)
+  end
+
+  def self.delete_course(id)
+    sql = 'DELETE FROM courses
+          WHERE id = $1'
+    values = [id]
+    SqlRunner.run(sql, values)
+  end
+
+  def self.delete_all
+    sql = 'DELETE FROM courses'
+    SqlRunner.run(sql)
+  end
+
+  def self.mapping
+    return course_hash.map { |course| Course.new(course) }
+  end
 
 
 end

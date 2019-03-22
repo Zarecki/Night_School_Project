@@ -1,13 +1,16 @@
 require_relative('../models/student.rb')
 require_relative('../models/course.rb')
 
+# Student.delete_all
+Course.delete_all
+
 course1 = Course.new({
   'title' => 'Induction',
   'capacity' => 20,
   'day' => 'thursday'
   })
 
-
+# course1.save
 
 
 
@@ -35,4 +38,4 @@ course1 = Course.new({
 
 # Student.delete_student(4)
 
-Student.delete_all
+# Student.delete_all
