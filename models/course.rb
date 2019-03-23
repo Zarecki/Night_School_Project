@@ -13,7 +13,6 @@ attr_reader :id, :title, :capacity, :day, :session, :level, :number_of_students,
     @session = options['session'] if options['session']
     @level = options['level'].to_i if options['level']
     @course_type = options['course_type'] if options['course_type']
-    @number_of_students = 0
   end
 
   def save

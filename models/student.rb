@@ -11,7 +11,6 @@ def initialize(options)
   @age = options['age'].to_i
   @ability = options['ability'].to_i if options['ability']
   @gender = options['gender'].to_i if options['gender']
-  @course_id = options['course_id'].to_i if options['course_id']
 end
 
 def save
@@ -57,6 +56,17 @@ def self.delete_all
   sql = 'DELETE FROM students'
   SqlRunner.run(sql)
 end
+
+def book_in_to_course(course_id)
+  sql = 'INSERT INTO bookings(student_id, course_id)
+        VALUES ($1, $2)
+        RETURNING *'
+  values = [@id, course_id]
+  SqlRunner.run(sql, values)
+end
+
+
+
 
 def self.mapping
   return student_hash.map { |student| Student.new(student) }

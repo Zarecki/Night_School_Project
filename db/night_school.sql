@@ -9,7 +9,6 @@ CREATE TABLE courses (
   day VARCHAR(255),
   session VARCHAR(255),
   level INT2,
-  number_of_students INT2,
   course_type VARCHAR(255)
 );
 
@@ -19,8 +18,7 @@ CREATE TABLE students (
   last_name VARCHAR(255),
   age INT2,
   ability INT2,
-  gender INT2,
-  course_id INT2 REFERENCES courses(id) ON DELETE CASCADE
+  gender INT2
 );
 
 CREATE TABLE bookings (
