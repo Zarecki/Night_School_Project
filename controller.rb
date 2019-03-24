@@ -23,7 +23,7 @@ post '/sudents' do #create
   redirect to '/students'
 end
 
-get '/students:id/edit' do #edit
+get '/students/:id/edit' do #edit
   @student = Student.find_by_id(params['id'])
   erb(:edit_students)
 end
@@ -58,3 +58,8 @@ post '/courses' do #create
   Course.new(params).save
   redirect to '/courses'
 end
+
+get '/courses/:id/edit' do #edit
+  @student = Student.find_by_id(params['id'])
+  erb(:edit_courses)
+end 
