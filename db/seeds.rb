@@ -41,5 +41,6 @@ student2.save
 # Student.delete_all
 
 student1.book_in_to_course(course1.id)
+student2.book_in_to_course(course1.id)
 
 course1.list_students_by_course

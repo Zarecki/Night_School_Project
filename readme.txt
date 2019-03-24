@@ -11,3 +11,7 @@ student.add_to_course method created
 23/03/19
 
 V 0.0.4
+list_students_by_course method created
+24/03/19
+
+V.0.0.4
