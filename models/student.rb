@@ -2,10 +2,10 @@ require_relative('../db/sqlrunner.rb')
 
 class Student
 
-  attr_reader :id, :first_name, :last_name, :age, :ability, :gender, :course_id
+  attr_reader :id, :first_name, :last_name, :age, :ability, :gender
 
 def initialize(options)
-  @id = options['id'].to_i if options['id']
+  @id = options['id'] if options['id']
   @first_name = options['first_name'].capitalize
   @last_name = options['last_name'].capitalize
   @age = options['age'].to_i

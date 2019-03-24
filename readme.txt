@@ -7,3 +7,7 @@ Start code set up
 22/03/19
 
 V 0.0.3
+student.add_to_course method created
+23/03/19
+
+V 0.0.4
