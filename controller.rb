@@ -62,4 +62,10 @@ end
 get '/courses/:id/edit' do #edit
   @student = Student.find_by_id(params['id'])
   erb(:edit_courses)
-end 
+end
+
+post '/courses/:id' do #update
+  student = Student.new(params)
+  student.update
+  redirect to "/students/#{params['id']}"
+end
