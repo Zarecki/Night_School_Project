@@ -14,8 +14,12 @@ V 0.0.4
 list_students_by_course method created
 24/03/19
 
-V.0.0.4
+V 0.0.4
 students REST
 24/03/19
 
-V0.0.5
+V 0.0.5
+courses REST
+24/03/19
+
+V 0.0.6
