@@ -25,7 +25,7 @@ end
 def self.find_all
   sql = 'SELECT * FROM students'
   student_hash = SqlRunner.run(sql)
-  student = Student.mapping
+  student = student_hash.map { |student| Student.new(student) }
 end
 
 def self.find_by_id(id)
@@ -64,14 +64,6 @@ def book_in_to_course(course_id)
   values = [@id, course_id]
   SqlRunner.run(sql, values)
 end
-
-
-
-
-def self.mapping
-  return student_hash.map { |student| Student.new(student) }
-end
-
 
 
 

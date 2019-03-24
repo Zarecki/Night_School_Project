@@ -1,6 +1,7 @@
 <h2>Students</h2>
 
 <% for student in @students %>
-<p>Name: <%= student.first_name %> <%= student.last_name %></p>
-
+<p>Name: <%= student.first_name %> <%= student.last_name %>
+<a href="/students/<%=student.id%>">Click here for details</a>
+</p>
 <% end %>
