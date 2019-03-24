@@ -53,3 +53,8 @@ end
 get '/courses/new' do #new
   erb(:new_courses)
 end
+
+post '/courses' do #create
+  Course.new(params).save
+  redirect to '/courses'
+end
