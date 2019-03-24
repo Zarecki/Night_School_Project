@@ -45,9 +45,11 @@ get '/courses' do #index
   erb(:index_courses)
 end
 
-# get '/courses/:id' do #show
-#   @course = Coursess.find_by_id(params['id'])
-#   erb(:show_courses)
-# end
+get '/courses/:id' do #show
+  @course = Coursess.find_by_id(params['id'])
+  erb(:show_courses)
+end
 
-get
+get '/courses/new' do #new
+  erb(:new_courses)
+end
