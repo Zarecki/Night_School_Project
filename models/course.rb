@@ -28,7 +28,7 @@ attr_reader :id, :title, :capacity, :day, :session, :level, :course_type
   def self.find_all
     sql = 'SELECT * FROM courses'
     course_hash = SqlRunner.run(sql)
-    course = course_hash.map { |course| Course.new(course) }
+    course = Course.mapping
   end
 
   def self.find_by_id(id)

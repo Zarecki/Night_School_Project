@@ -36,7 +36,7 @@ end
 
 post '/students/:id/delete' do #destroy
   student = Student.find_by_id(params['id'])
-  student.delete_student
+  student.delete_student(params['id'])
   redirect to '/students'
 end
 
