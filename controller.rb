@@ -18,7 +18,7 @@ get '/students/new' do #new
   erb(:new_students)
 end
 
-post '/sudents' do #create
+post '/students' do #create
   Student.new(params).save
   redirect to '/students'
 end
@@ -74,4 +74,4 @@ post '/courses/:id/delete' do #destroy
   course = Course.find_by_id(params['id'])
   course.delete_course
   redirect to '/courses'
-end 
+end

@@ -1,5 +1,7 @@
 <h2>Students</h2>
 
+<p><a href="/students/new">Enroll a new student</a></p>
+
 <% for student in @students %>
 <p>Name: <%= student.first_name %> <%= student.last_name %>
 <a href="/students/<%=student.id%>">Click here for details</a>
