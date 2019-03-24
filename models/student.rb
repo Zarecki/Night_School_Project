@@ -40,7 +40,7 @@ def update
   sql = 'UPDATE students
         SET(first_name, last_name, age)
         = ($1, $2, $3)
-        WHERE id - $4'
+        WHERE id = $4'
   values = [@first_name, @last_name, @age, @id]
   SqlRunner.run(sql, values)
 end

@@ -4,4 +4,6 @@
 <p>Name: <%= @student.first_name %> <%= @student.last_name %></p>
 <p>Age: <%= @student.age %></p>
 <p>Student ID: <%= @student.id %></p>
-<p><a href="/students/<%=@student.id%>/delete">Click here to remove this student</a></p>
+<p><a href="<%= @student.id %>">Click here to remove this student</a></p>
+
+<a href="/students/<%= @student.id %>/edit">Update Student Details</a>
