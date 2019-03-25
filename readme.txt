@@ -35,3 +35,7 @@ Student erb's all working
 25/03/19
 
 V 0.0.9
+Course erb's all working
+25/03/19
+
+V 0.0.10
