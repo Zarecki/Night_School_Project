@@ -1,5 +1,6 @@
 require('sinatra')
 require('sinatra/contrib/all')
+require('pry')
 require_relative('./models/course.rb')
 require_relative('./models/student.rb')
 also_reload('./models/*')
@@ -69,6 +70,21 @@ post '/courses/:id' do #update
   course = Course.new(params)
   course.update
   redirect to "/courses/#{params['id']}"
+end
+
+get '/courses/:id/studentlist' do
+  @students = Course.list_students_by_course(params['id'])
+  erb(:studentlist_courses)
+end
+
+get '/courses/:id/addstudent' do
+  @students = Student.find_all
+  erb(:addstudent_courses)
+end
+
+post '/courses/:id/studentlist' do
+  student.add_to_course(params['id'])
+  redirect to '/courses/:id/studentlist'
 end
 
 post '/courses/:id/delete' do #destroy

@@ -61,13 +61,13 @@ attr_reader :id, :title, :capacity, :day, :session, :level, :course_type
     SqlRunner.run(sql)
   end
 
-def list_students_by_course
+def self.list_students_by_course(id)
   sql = 'SELECT *
         FROM students
         RIGHT JOIN bookings
         ON students.id = bookings.student_id
         WHERE bookings.course_id = $1'
-  values = [@id]
+  values = [id]
   student_hash = SqlRunner.run(sql, values)
   student = student_hash.map { |student| Student.new(student) }
   return student
