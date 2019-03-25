@@ -1,0 +1,11 @@
+<p>Course Details</p>
+
+<p>Title: <%= @course.title %></p>
+<p>Day: <%= @course.day %></p>
+<p>Capacity: <%= @course.capacity %></p>
+
+<a href="/courses/<$= @course.id %>/edit">Update course details</a>
+
+<form action="/courses/<%= @course.id %>/delete" method="post">
+  <input type="submit" value="Click here to delete course">
+</form>
