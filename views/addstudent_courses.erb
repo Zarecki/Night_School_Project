@@ -1,0 +1,13 @@
+<p>Enroll Student</p>
+
+<p> Add student
+  <select id="student" name="student">
+    <% for student in @students %>
+    <option value="<%= student.id %>"><%=student.first_name%> <%=student.last_name%></option>
+    <% end %>
+  </select>
+  to course</p>
+
+<form action="/courses/<%=params['id']%>" method="post">
+  <input type="submit" value="Enroll Student"/>
+</form>

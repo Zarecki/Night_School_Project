@@ -39,3 +39,7 @@ Course erb's all working
 25/03/19
 
 V 0.0.10
+Studentlist erb working
+25/03/19
+
+V 0.1

@@ -82,7 +82,7 @@ get '/courses/:id/addstudent' do
   erb(:addstudent_courses)
 end
 
-post '/courses/:id/studentlist' do
+post '/courses/:id/' do
   student.add_to_course(params['id'])
   redirect to '/courses/:id/studentlist'
 end
