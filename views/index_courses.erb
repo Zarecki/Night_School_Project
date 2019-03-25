@@ -1,0 +1,9 @@
+<h2>Courses</h2>
+
+<p><a href="/courses/new">Create a new course</a></p>
+
+<% for course in @courses %>
+<p>Title: <%= course.title %>
+  <a href="/courses/<%= course.id%>">Click here for details</a>
+</p>
+<% end %>

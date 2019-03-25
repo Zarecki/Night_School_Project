@@ -42,7 +42,7 @@ post '/students/:id/delete' do #destroy
 end
 
 get '/courses' do #index
-  @course = Course.find_all
+  @courses = Course.find_all
   erb(:index_courses)
 end
 
