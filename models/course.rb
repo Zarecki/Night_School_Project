@@ -48,7 +48,7 @@ attr_reader :id, :title, :capacity, :day, :session, :level, :course_type
     SqlRunner.run(sql, values)
   end
 
-  def self.delete_course(id)
+  def delete_course(id)
     sql = 'DELETE FROM courses
           WHERE id = $1'
     values = [id]

@@ -27,3 +27,11 @@ layout erb
 24/03/19
 
 V 0.0.7
+student erb's written and displaying. error on NEW.
+25/03/19
+
+V 0.0.8
+Student erb's all working
+25/03/19
+
+V 0.0.9

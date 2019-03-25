@@ -9,14 +9,15 @@ get '/students' do #index
   erb(:index_students)
 end
 
+get '/students/new' do #new
+  erb(:new_students)
+end
+
 get '/students/:id' do #show
   @student = Student.find_by_id(params['id'])
   erb(:show_students)
 end
 
-get '/students/new' do #new
-  erb(:new_students)
-end
 
 post '/students' do #create
   Student.new(params).save
@@ -45,13 +46,13 @@ get '/courses' do #index
   erb(:index_courses)
 end
 
+get '/courses/new' do #new
+  erb(:new_courses)
+end
+
 get '/courses/:id' do #show
   @course = Course.find_by_id(params['id'])
   erb(:show_courses)
-end
-
-get '/courses/new' do #new
-  erb(:new_courses)
 end
 
 post '/courses' do #create

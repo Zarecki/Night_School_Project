@@ -45,7 +45,7 @@ def update
   SqlRunner.run(sql, values)
 end
 
-def self.delete_student(id)
+def delete_student(id)
   sql = 'DELETE FROM students
         WHERE id = $1'
   values = [id]
