@@ -5,7 +5,7 @@
 <p>Capacity: <%= @course.capacity %></p>
 <p>Course ID: <%= @course.id %></p>
 
-<a href="/courses/<$= @course.id %>/edit">Update course details</a>
+<a href="/courses/<%= @course.id %>/edit">Update course details</a>
 
 <form action="/courses/<%= @course.id %>/delete" method="post">
   <input type="submit" value="Click here to delete course">

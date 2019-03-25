@@ -44,7 +44,7 @@ attr_reader :id, :title, :capacity, :day, :session, :level, :course_type
     sql = 'UPDATE courses
           SET(title, capacity, day)
           = ($1, $2, $3)
-          WHERE id - $4'
+          WHERE id = $4'
     values = [@title, @capacity, @day, @id]
     SqlRunner.run(sql, values)
   end
