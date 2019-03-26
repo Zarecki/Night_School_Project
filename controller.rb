@@ -3,6 +3,7 @@ require('sinatra/contrib/all')
 require('pry')
 require_relative('./models/course.rb')
 require_relative('./models/student.rb')
+require_relative('./models/bookings.rb')
 also_reload('./models/*')
 
 get '/students' do #index
@@ -77,18 +78,20 @@ get '/courses/:id/studentlist' do
   erb(:studentlist_courses)
 end
 
-get '/courses/:id/addstudent' do
-  @students = Student.find_all
-  erb(:addstudent_courses)
-end
-
-post '/courses/:id/' do
-  student.add_to_course(params['id'])
-  redirect to '/courses/:id/studentlist'
-end
-
 post '/courses/:id/delete' do #destroy
   course = Course.find_by_id(params['id'])
   course.delete_course
+  redirect to '/courses'
+end
+
+get '/bookings/new' do
+  @students = Student.find_all
+  @courses = Course.find_all
+  erb(:new_bookings)
+end
+
+post '/bookings' do
+  booking = Booking.new(params)
+  booking.save
   redirect to '/courses'
 end

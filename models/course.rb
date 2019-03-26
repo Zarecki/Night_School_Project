@@ -10,7 +10,7 @@ attr_reader :id, :title, :capacity, :day, :session, :level, :course_type
     @id = options['id'].to_i if options['id']
     @title = options['title']
     @capacity = options['capacity'].to_i
-    @day = options['day'].downcase
+    @day = options['day']
     @session = options['session'] if options['session']
     @level = options['level'].to_i if options['level']
     @course_type = options['course_type'] if options['course_type']

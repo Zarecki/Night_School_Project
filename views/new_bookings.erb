@@ -1,0 +1,22 @@
+<p>Enroll Student</p>
+
+<form action="/bookings" method="post">
+  <label>Add student:
+    <select name="student_id">
+      <% for student in @students %>
+      <option value="<%=student.id %>"><%=student.first_name%> <%=student.last_name%></option>
+      <% end %>
+    </select>
+  </label>
+
+  <label>
+    To course:
+    <select name="course_id">
+      <% for course in @courses %>
+      <option value="<%=course.id %>"><%=course.title%></option>
+      <% end %>
+    </select>
+  </label>
+
+  <input type="submit" value="Enroll Student">
+</form>

@@ -43,3 +43,7 @@ Studentlist erb working
 25/03/19
 
 V 0.1
+MVP achieved
+26/03/19
+
+V 0.2
