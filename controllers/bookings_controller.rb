@@ -17,11 +17,18 @@ post '/bookings' do
   booking = Booking.new(params)
   student = Student.find_by_id(params['student_id'])
   course = Course.find_by_id(params['course_id'])
-  p course
-  if course.gender_requirement == ""
+  if course.course_pop >= course.capacity
+    redirect to '/courses/full'
+  elsif (course.gender_requirement == "nil") && (course.age_requirement == 0)
     booking.save
     redirect to '/courses'
-  elsif student.gender == course.gender_requirement
+  elsif (student.gender == course.gender_requirement) && (student.age >= course.age_requirement)
+    booking.save
+    redirect to '/courses'
+  elsif (student.gender == course.gender_requirement) && (course.age_requirement == 0)
+    booking.save
+    redirect to '/courses'
+  elsif (student.age >= course.age_requirement) && (course.gender_requirement == "nil")
     booking.save
     redirect to '/courses'
   else

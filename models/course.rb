@@ -4,20 +4,21 @@ require('pry')
 
 class Course
 
-attr_reader :id, :title, :capacity, :day, :gender_requirement
+attr_reader :id, :title, :capacity, :day, :gender_requirement, :age_requirement
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @title = options['title']
     @capacity = options['capacity'].to_i
     @day = options['day']
     @gender_requirement = options['gender_requirement']
+    @age_requirement = options['age_requirement'].to_i
   end
 
   def save
-    sql = 'INSERT INTO courses(title, capacity, day, gender_requirement)
-          VALUES ($1, $2, $3, $4)
+    sql = 'INSERT INTO courses(title, capacity, day, gender_requirement, age_requirement)
+          VALUES ($1, $2, $3, $4, $5)
           Returning *'
-    values = [@title, @capacity, @day, @gender_requirement]
+    values = [@title, @capacity, @day, @gender_requirement, @age_requirement]
     course = SqlRunner.run(sql, values)
     @id = course.first['id']
   end
@@ -39,10 +40,10 @@ attr_reader :id, :title, :capacity, :day, :gender_requirement
 
   def update
     sql = 'UPDATE courses
-          SET(title, capacity, day, gender_requirement)
-          = ($1, $2, $3, $4)
-          WHERE id = $5'
-    values = [@title, @capacity, @day, @gender_requirement, @id]
+          SET(title, capacity, day, gender_requirement, age_requirement)
+          = ($1, $2, $3, $4, $5)
+          WHERE id = $6'
+    values = [@title, @capacity, @day, @gender_requirement, @age_requirement, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -68,6 +69,15 @@ def self.list_students_by_course(id)
   student_hash = SqlRunner.run(sql, values)
   student = student_hash.map { |student| Student.new(student) }
   return student
+end
+
+def course_pop
+  sql = 'SELECT COUNT (*)
+        FROM bookings
+        WHERE course_id = $1'
+  values = [@id]
+  number = SqlRunner.run(sql, values)
+  return number
 end
 
 end

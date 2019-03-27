@@ -47,3 +47,7 @@ MVP achieved
 26/03/19
 
 V 0.2
+Gender restriction extension
+27/03/19
+
+V 0.3

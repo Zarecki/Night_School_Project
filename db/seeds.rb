@@ -17,7 +17,7 @@ course1.save
   student1 = Student.new({
     'first_name' => 'Jo',
     'last_name' => 'Bloggs',
-    'age' => 52,
+    'age' => 62,
     'gender' => 'Female'
     })
 

@@ -41,7 +41,7 @@ def update
         SET(first_name, last_name, age, gender)
         = ($1, $2, $3, $4)
         WHERE id = $5'
-  values = [@first_name, @last_name, @age, @id, @gender]
+  values = [@first_name, @last_name, @age, @gender, @id]
   SqlRunner.run(sql, values)
 end
 

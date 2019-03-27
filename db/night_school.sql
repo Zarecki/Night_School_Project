@@ -7,7 +7,8 @@ CREATE TABLE courses (
   title VARCHAR(255),
   capacity INT2,
   day VARCHAR(255),
-  gender_requirement VARCHAR(255)
+  gender_requirement VARCHAR(255),
+  age_requirement INT2
 );
 
 CREATE TABLE students (
