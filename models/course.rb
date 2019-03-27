@@ -60,7 +60,7 @@ attr_reader :id, :title, :capacity, :day, :gender_requirement, :age_requirement
   end
 
 def self.list_students_by_course(id)
-  sql = 'SELECT *
+  sql = 'SELECT students.*
         FROM students
         RIGHT JOIN bookings
         ON students.id = bookings.student_id
@@ -72,12 +72,13 @@ def self.list_students_by_course(id)
 end
 
 def course_pop
-  sql = 'SELECT COUNT (*)
+  sql = 'SELECT COUNT(*)
         FROM bookings
         WHERE course_id = $1'
   values = [@id]
-  number = SqlRunner.run(sql, values)
-  return number
+  result = SqlRunner.run(sql, values).first
+  p result
+  return result['count'].to_i
 end
 
 end

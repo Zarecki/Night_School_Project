@@ -13,7 +13,7 @@
   <label for="gender_requirement">Gender Requirement (input 'nil' if none):</label>
   <input type="text" name="gender_requirement" id="gender-requirement" value="<%=@course.gender_requirement%>">
 
-  <label for="age_requirement">Age Requirement (input 'nil' if none):</label>
+  <label for="age_requirement">Age Requirement (input '0' if none):</label>
   <input type="number" name="age_requirement" id="age-requirement" value="<%= @course.age_requirement %>">
 
   <input type="submit" value="Update Course Details">

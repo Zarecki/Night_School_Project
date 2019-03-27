@@ -19,6 +19,12 @@ get '/courses/new' do #new
   erb(:"courses/new_courses")
 end
 
+
+get '/courses/full' do #full
+  return "full :D"
+  # erb(:"courses/new_courses")
+end
+
 get '/courses/:id' do #show
   @course = Course.find_by_id(params['id'])
   erb(:"courses/show_courses")

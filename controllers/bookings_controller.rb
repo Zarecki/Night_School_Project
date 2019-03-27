@@ -17,7 +17,11 @@ post '/bookings' do
   booking = Booking.new(params)
   student = Student.find_by_id(params['student_id'])
   course = Course.find_by_id(params['course_id'])
-  if course.course_pop >= course.capacity
+  puts course.course_pop
+  puts course.capacity
+
+
+  if (course.course_pop >= course.capacity)
     redirect to '/courses/full'
   elsif (course.gender_requirement == "nil") && (course.age_requirement == 0)
     booking.save
