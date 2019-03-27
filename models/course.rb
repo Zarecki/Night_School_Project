@@ -4,23 +4,20 @@ require('pry')
 
 class Course
 
-attr_reader :id, :title, :capacity, :day, :session, :level, :course_type
-
+attr_reader :id, :title, :capacity, :day, :gender_requirement
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @title = options['title']
     @capacity = options['capacity'].to_i
     @day = options['day']
-    @session = options['session'] if options['session']
-    @level = options['level'].to_i if options['level']
-    @course_type = options['course_type'] if options['course_type']
+    @gender_requirement = options['gender_requirement']
   end
 
   def save
-    sql = 'INSERT INTO courses(title, capacity, day)
-          VALUES ($1, $2, $3)
+    sql = 'INSERT INTO courses(title, capacity, day, gender_requirement)
+          VALUES ($1, $2, $3, $4)
           Returning *'
-    values = [@title, @capacity, @day]
+    values = [@title, @capacity, @day, @gender_requirement]
     course = SqlRunner.run(sql, values)
     @id = course.first['id']
   end
@@ -42,10 +39,10 @@ attr_reader :id, :title, :capacity, :day, :session, :level, :course_type
 
   def update
     sql = 'UPDATE courses
-          SET(title, capacity, day)
-          = ($1, $2, $3)
-          WHERE id = $4'
-    values = [@title, @capacity, @day, @id]
+          SET(title, capacity, day, gender_requirement)
+          = ($1, $2, $3, $4)
+          WHERE id = $5'
+    values = [@title, @capacity, @day, @gender_requirement, @id]
     SqlRunner.run(sql, values)
   end
 

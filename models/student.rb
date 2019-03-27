@@ -10,14 +10,14 @@ def initialize(options)
   @last_name = options['last_name']
   @age = options['age'].to_i
   @ability = options['ability'].to_i if options['ability']
-  @gender = options['gender'].to_i if options['gender']
+  @gender = options['gender']
 end
 
 def save
-  sql = 'INSERT INTO students(first_name, last_name, age)
-        VALUES ($1, $2, $3)
+  sql = 'INSERT INTO students(first_name, last_name, age, gender)
+        VALUES ($1, $2, $3, $4)
         Returning *'
-  values = [@first_name, @last_name, @age]
+  values = [@first_name, @last_name, @age, @gender]
   student = SqlRunner.run(sql, values)
   @id = student.first['id']
 end
@@ -38,10 +38,10 @@ end
 
 def update
   sql = 'UPDATE students
-        SET(first_name, last_name, age)
-        = ($1, $2, $3)
-        WHERE id = $4'
-  values = [@first_name, @last_name, @age, @id]
+        SET(first_name, last_name, age, gender)
+        = ($1, $2, $3, $4)
+        WHERE id = $5'
+  values = [@first_name, @last_name, @age, @id, @gender]
   SqlRunner.run(sql, values)
 end
 
@@ -64,7 +64,5 @@ def book_in_to_course(course_id)
   values = [@id, course_id]
   SqlRunner.run(sql, values)
 end
-
-
 
 end

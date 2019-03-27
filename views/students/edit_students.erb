@@ -10,5 +10,8 @@
   <label for="age">Age:</label>
   <input type="text" name="age" id="age" value="<%=@student.age%>">
 
+  <label for="gender">Gender: (please indicate "Male", "Female" or "Other")</label>
+  <input type="text" name="gender" id="gender" value="<%= @student.gender %>">
+
   <input type="submit" value="Update Student Details">
 </form>

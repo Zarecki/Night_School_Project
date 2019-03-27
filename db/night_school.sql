@@ -7,9 +7,7 @@ CREATE TABLE courses (
   title VARCHAR(255),
   capacity INT2,
   day VARCHAR(255),
-  session VARCHAR(255),
-  level INT2,
-  course_type VARCHAR(255)
+  gender_requirement VARCHAR(255)
 );
 
 CREATE TABLE students (
@@ -18,7 +16,7 @@ CREATE TABLE students (
   last_name VARCHAR(255),
   age INT2,
   ability INT2,
-  gender INT2
+  gender VARCHAR(255)
 );
 
 CREATE TABLE bookings (

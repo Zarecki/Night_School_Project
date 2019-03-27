@@ -17,13 +17,15 @@ course1.save
   student1 = Student.new({
     'first_name' => 'Jo',
     'last_name' => 'Bloggs',
-    'age' => 52
+    'age' => 52,
+    'gender' => 'Female'
     })
 
   student2 = Student.new({
     'first_name' => 'John',
     'last_name' => 'Doe',
-    'age' => 65
+    'age' => 65,
+    'gender' => 'Male'
     })
 
 student1.save

@@ -6,6 +6,9 @@ require_relative('../models/student.rb')
 require_relative('../models/bookings.rb')
 also_reload('../models/*')
 
+get '/courses/error' do
+  erb(:"courses/error")
+end
 
 get '/courses' do #index
   @courses = Course.find_all
