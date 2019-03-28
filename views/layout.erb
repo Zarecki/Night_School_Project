@@ -3,11 +3,19 @@
   <head>
     <meta charset="utf-8">
     <title>Night School</title>
-    <!-- <link rel="stylesheet" href="/style.css"> -->
+    <link rel="stylesheet" href="/style.css">
   </head>
   <body>
     <nav>
-      <ul>
+      <ul class="nav-right">
+        <li class="logo">
+          The Night School
+        </li>
+      </ul>
+      <ul class="nav-bar">
+        <li>
+          <a href="/">Home</a>
+        </li>
         <li>
           <a href="/students">Students</a>
         </li>
@@ -16,8 +24,10 @@
         </li>
       </ul>
     </nav>
-
-    <%= yield %>
-
+    <section class="main-section">
+      <%= yield %>
+    </section>
+    <footer>
+    </footer>
   </body>
 </html>

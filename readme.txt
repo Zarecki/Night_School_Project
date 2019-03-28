@@ -53,3 +53,15 @@ Gender restriction extension
 V 0.3
 Age restriction extension
 27/03/19
+
+V 0.4
+basic styling
+28/03/19
+
+V 0.5
+finished styling
+28/03/19
+
+V 1.0
+End of work
+28/03/19

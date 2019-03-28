@@ -1,9 +1,13 @@
 <h2>Courses</h2>
 
-<p><a href="/courses/new">Create a new course</a></p>
+<a href="/courses/new">
+  <button>Create new course</button>
+</a>
 
 <% for course in @courses %>
 <p>Title: <%= course.title %>
-  <a href="/courses/<%= course.id%>">Click here for details</a>
+  <a href="/courses/<%= course.id%>">
+    <button>Course details</button>
+  </a>
 </p>
 <% end %>

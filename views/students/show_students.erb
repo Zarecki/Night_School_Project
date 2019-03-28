@@ -1,13 +1,15 @@
-<p>Student Details</p>
+<h3>Student Details</h3>
 
 
 <p>Name: <%= @student.first_name %> <%= @student.last_name %></p>
 <p>Age: <%= @student.age %></p>
-<p>Student ID: <%= @student.id %></p>
 <p>Gender: <%= @student.gender %></p>
+<p>Student ID: <%= @student.id %></p>
 
 
-<a href="/students/<%= @student.id %>/edit">Update Student Details</a>
+<a href="/students/<%= @student.id %>/edit">
+  <button>Update Student Details</button>
+</a>
 
 <form action="/students/<%= @student.id %>/delete" method="post">
   <input type="submit" value="Click to remove student"/>

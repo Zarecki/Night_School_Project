@@ -19,4 +19,12 @@ def save
   @id = result.first['id'].to_i
 end
 
+def delete_booking
+  sql = 'DELETE FROM bookings
+        WHERE (student_id, course_id)
+        = ($1, $2)'
+  values = [@student_id, @course_id]
+  SqlRunner.run(sql, values)
+end
+
 end

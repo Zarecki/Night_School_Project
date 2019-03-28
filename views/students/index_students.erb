@@ -1,9 +1,13 @@
-<h2>Students</h2>
+<h3>Students</h3>
 
-<p><a href="/students/new">Enroll a new student</a></p>
+<a href="/students/new">
+  <button>Enroll a new student</button>
+</a>
 
 <% for student in @students %>
   <p>Name: <%= student.first_name %> <%= student.last_name %>
-    <a href="/students/<%=student.id%>">Click here for details</a>
+    <a href="/students/<%=student.id%>">
+      <button>Student details</button>
+    </a>
   </p>
 <% end %>

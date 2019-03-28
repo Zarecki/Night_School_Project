@@ -1,17 +1,27 @@
-<p>Course Details</p>
+<h3>Course Details</h3>
 
-<p>Title: <%= @course.title %></p>
+<p>Course title: <%= @course.title %></p>
 <p>Day: <%= @course.day %></p>
 <p>Capacity: <%= @course.capacity %></p>
-<p>Course ID: <%= @course.id %></p>
 <p>Gender Requirement: <%= @course.gender_requirement %></p>
 <p>Age Requirement: <%= @course.age_requirement %></p>
+<p>Course ID: <%= @course.id %></p>
 
-<a href="/bookings/new">Enroll a student</a>
+<a href="/bookings/new">
+  <button>Enroll a student</button>
+</a>
 
-<a href="/courses/<%= @course.id %>/studentlist">View all students on this course</a>
+<a href="/courses/<%= @course.id %>/studentlist">
+  <button>View enrolled students</button>
+</a>
 
-<a href="/courses/<%= @course.id %>/edit">Update course details</a>
+<a href="/courses/<%= @course.id %>/edit">
+  <button>Update course details</button>
+</a>
+
+<a href="/bookings/delete">
+  <button>Remove enrolled student</button>
+</a>
 
 <form action="/courses/<%= @course.id %>/delete" method="post">
   <input type="submit" value="Click to remove course">

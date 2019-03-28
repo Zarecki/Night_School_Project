@@ -7,7 +7,9 @@ Course.delete_all
 course1 = Course.new({
   'title' => 'Induction',
   'capacity' => 20,
-  'day' => 'thursday'
+  'day' => 'thursday',
+  'gender_requirement' => 'nil',
+  'age_requirement' => 0
   })
 
 course1.save
